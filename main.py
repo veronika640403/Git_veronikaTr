@@ -12,7 +12,7 @@
 import random
 
 class Student:
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
         self.gladness = 50
         self.progress = 0
@@ -24,8 +24,13 @@ class Student:
         self.progress += 0.05
 
     def to_sleep(self):
-            print('I will sleep')
-            self.gladness += 1.5
+        print('I will sleep')
+        self.gladness += 1.5
+
+    def to_chill(self):
+        print('Rest time')
+        self.gladness += 0.4
+        self.progress -= 0.1
 
     def is_alive(self):
         if self.progress < -0.5:
@@ -41,8 +46,8 @@ class Student:
         print(f'Gladness ={self.gladness}')
         print(f'Gladness ={round(self.progress,2)}')
     def live(self,day):
-        day = 'Day' + str(day) + 'of' + self.name  + 'life'
-        print(f'{day:^50}')
+        day_info = f'Day {day} of {self.name}\'s life'
+        print(f'{day_info:^50}')
         life_cube = random.randint(1,3)
         if  life_cube == 1:
             self.to_chill()
@@ -52,8 +57,9 @@ class Student:
             self.to_study()
             self.end_of_day()
             self.is_alive()
-    nick = Student(name='Andrew')
-    for day in range(366):
-        if nick.alive == False:
-            break
+nick = Student(name='Artem')
+for day in range(1,366):
+    if not nick.alive:
+        break
+    nick.live(day)
 
