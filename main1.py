@@ -117,7 +117,7 @@ def days_indexes(self, day):
     home_indexes = f'Home indexes'
     print(f'{home_indexes:=^50}', '\n')
     print(f'Food - {self.home.food}')
-    print(f'Fuel - {self.home.mess}')
+    print(f'Mess - {self.home.mess}')
 
 def is_alive(self):
     pass
